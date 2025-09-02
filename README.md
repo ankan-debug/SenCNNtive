@@ -84,19 +84,19 @@ Follow these instructions to get a copy of the project up and running on your lo
     ```bash
     python.exe -m pip install --upgrade pip
     ```
-4.1.  **Install Dependencies**
+5.  **Install Dependencies**
     Install all the required libraries from the `requirements.txt` file.
     ```bash
     pip install -r requirements.txt
     ```
 
-5.  **Configure API Keys**
+6.  **Configure API Keys**
     Before running the application, you must add your own Reddit API credentials.
     -   Open the **`main.py`** file.
     -   Find the `get_text_from_reddit` function.
     -   Replace the placeholder values for `client_id` and `client_secret` with your own keys.
 
-6.  **Train the Model (One-Time Step)**
+7.  **Train the Model (One-Time Step)**
     You must train the model once to generate the necessary `.h5` and `.pickle` files. This is a long, resource-intensive process.
     ```bash
     python train_model.py
