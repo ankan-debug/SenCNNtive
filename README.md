@@ -61,7 +61,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 1.  **Clone the Repository**
     Open your terminal and run the following command to clone the project.
     ```bash
-    git clone [https://github.com/ankan-debug/SenCNNtive.git](https://github.com/ankan-debug/SenCNNtive.git)
+    git clone https://github.com/ankan-debug/SenCNNtive.git
     ```
 
 2.  **Navigate to the Project Directory**
