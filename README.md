@@ -80,8 +80,11 @@ Follow these instructions to get a copy of the project up and running on your lo
     ```bash
     .\venv\Scripts\activate
     ```
-
-4.  **Install Dependencies**
+4. **Upadte**
+    ```bash
+    python.exe -m pip install --upgrade pip
+    ```
+4.1.  **Install Dependencies**
     Install all the required libraries from the `requirements.txt` file.
     ```bash
     pip install -r requirements.txt
