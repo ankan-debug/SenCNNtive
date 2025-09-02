@@ -72,10 +72,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 3.  **Set Up the Virtual Environment**
     Create and activate a Python virtual environment.
     ```bash
-    # Create the environment
     python -m venv venv
-
-    # Activate on Windows
     .\venv\Scripts\activate
     ```
 
