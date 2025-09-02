@@ -73,6 +73,11 @@ Follow these instructions to get a copy of the project up and running on your lo
     Create and activate a Python virtual environment.
     ```bash
     python -m venv venv
+    ```
+    ```bash
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+    ```
+    ```bash
     .\venv\Scripts\activate
     ```
 
