@@ -1,6 +1,4 @@
 
-
-````markdown
 # SenCNNtive: A Keras-Powered Sentiment Analysis GUI 🧠
 
 <p align="center">
