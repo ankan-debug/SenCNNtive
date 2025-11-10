@@ -1,110 +1,145 @@
+
+
+````markdown
 # SenCNNtive: A Keras-Powered Sentiment Analysis GUI 🧠
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.11+-blue.svg" alt="Python Version">
-  <img src="https://img.shields.io/badge/Keras-3-red" alt="Keras Version">
-  <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+  <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" alt="Python Version">
+  <img src="https://img.shields.io/badge/Keras%20%2F%20TensorFlow-2.x-orange.svg" alt="Keras/TensorFlow">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
 </p>
 
-SenCNNtive is a desktop application that analyzes the sentiment of social media posts using a **Convolutional Neural Network (CNN)**. The model is built with Keras/TensorFlow and trained on the modern **TweetEval** dataset to understand the nuances of online language, classifying posts as **Positive**, **Negative**, or **Neutral**.
+<p align="center">
+  <i>A desktop application that analyzes the sentiment of Reddit posts using a Convolutional Neural Network (CNN) and provides a full evaluation report.</i>
+</p>
 
+SenCNNtive is a Python-based tool that uses a deep learning model to classify the sentiment of Reddit posts as **Positive**, **Negative**, or **Neutral**. The app features a custom "tech-themed" Tkinter GUI, pulls data directly from Reddit, and includes a full model evaluation dashboard.
 
+## 🚀 Key Features
 
----
+* **Deep Learning Core**: Utilizes a CNN built with Keras/TensorFlow to capture contextual features from text.
+* **Live Reddit Data**: Integrates with the Reddit API (PRAW) to fetch any post's title and body text for analysis.
+* **Modern Dataset**: Trained on the Hugging Face `datasets` library (`TweetEval` task) for high performance on modern social media language.
+* **Full Evaluation Suite**: The app can display a complete model performance report, including:
+    * Model Fit (Accuracy vs. Validation Accuracy)
+    * Model Loss (Loss vs. Validation Loss)
+    * Classification Report (Precision, Recall, F1-Score)
+    * Confusion Matrix
+* **Custom GUI**: A user-friendly graphical interface built with Python's native Tkinter library, styled with a dark, "techie" theme.
 
-## Key Features
+## 🛠️ Technology Stack
 
--   **Deep Learning Core**: Utilizes a CNN to capture contextual features from text for accurate sentiment classification.
--   **Modern Dataset**: Trained on the Hugging Face `TweetEval` dataset, ensuring better performance on current social media language.
--   **Multi-Class Analysis**: Classifies text into three distinct categories: Positive, Negative, and Neutral, with a confidence score.
--   **Simple GUI**: A user-friendly graphical interface built with Python's native Tkinter library for ease of use.
-
----
-
-## Technology Stack
-
--   **Backend**: Python
--   **Deep Learning**: Keras 3 with a TensorFlow backend
--   **Data Handling**: Hugging Face `datasets`, NumPy
--   **API Integration**: Python Reddit API Wrapper (PRAW)
--   **GUI**: Tkinter
-
----
-
-## ⚠️ Current Status: Reddit Only
-
-In its current version, this tool is configured to analyze posts exclusively from **Reddit**. The content extractor is built using the official Reddit API (PRAW). Support for other platforms is planned for future updates.
+* **Machine Learning**: Keras / TensorFlow, Scikit-learn
+* **Data Handling**: NumPy, Hugging Face `datasets`
+* **API Integration**: PRAW (Python Reddit API Wrapper)
+* **GUI**: Tkinter, Pillow (PIL)
+* **Plotting**: Matplotlib
 
 ---
 
-## 🚀 Future Roadmap
+## ⚙️ Getting Started: Installation & Usage
 
-This project is a foundation for a more comprehensive social media analysis tool. Future development goals include:
-
--   [ ] **Adding Twitter/X Support:** Integrating the X API to analyze tweets.
--   [ ] **Model Improvement:** Experimenting with more advanced architectures like LSTMs or Transformers (e.g., DistilBERT).
--   [ ] **Executable Packaging:** Bundling the application into a standalone `.exe` file using PyInstaller for easy distribution.
-
----
-
-## 🛠️ Getting Started
-
-Follow these instructions to get a copy of the project up and running on your local machine.
+Follow these steps to get the project running on your local machine.
 
 ### Prerequisites
 
--   Python 3.10 or newer
--   Git
+* [Python (3.10 or newer)](https://www.python.org/downloads/)
+* [Git](https://git-scm.com/downloads)
 
-### Installation & Usage
+### Step 1: Clone the Repository
 
-1.  **Clone the Repository**
-    Open your terminal and run the following command to clone the project.
-    ```bash
-    git clone https://github.com/ankan-debug/SenCNNtive.git
+First, open your terminal (CMD, PowerShell, etc.) and clone this repository.
+
+```bash
+git clone [https://github.com/ankan-debug/SenCNNtive.git](https://github.com/ankan-debug/SenCNNtive.git)
+cd SenCNNtive
+````
+
+### Step 2: Create and Activate a Virtual Environment
+
+It is highly recommended to use a virtual environment to manage dependencies.
+
+```bash
+# Create the environment
+python -m venv venv
+
+# Activate the environment (Windows)
+.\venv\Scripts\activate
+
+# Activate the environment (macOS/Linux)
+# source venv/bin/activate
+```
+
+### Step 3: Install Dependencies
+
+With your virtual environment active, install all the required libraries.
+
+```bash
+pip install -r requirements.txt
+```
+
+### Step 4: Add Your Reddit API Keys (CRITICAL)
+
+This application will **not** work without your personal API keys.
+
+1.  Go to [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) and create a new "script" application.
+
+2.  Open the `main.py` file in a code editor.
+
+3.  Find the `get_text_from_reddit` function.
+
+4.  Replace the placeholder values with your keys:
+
+    ```python
+    # main.py
+
+    ...
+    reddit = praw.Reddit(
+        client_id="YOUR_CLIENT_ID_HERE",        # <-- PASTE YOUR ID
+        client_secret="YOUR_CLIENT_SECRET_HERE",  # <-- PASTE YOUR SECRET
+        user_agent="sentiment tool v1 by u/YOUR_USERNAME_HERE" # <-- ADD YOUR USERNAME
+    )
+    ...
     ```
 
-2.  **Navigate to the Project Directory**
-    ```bash
-    cd SenCNNtive
-    ```
+**Warning:** Never commit your secret keys to GitHub.
 
-3.  **Set Up the Virtual Environment**
-    Create and activate a Python virtual environment.
-    ```bash
-    python -m venv venv
-    ```
-    ```bash
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-    ```
-    ```bash
-    .\venv\Scripts\activate
-    ```
-4. **Upadte**
-    ```bash
-    python.exe -m pip install --upgrade pip
-    ```
-5.  **Install Dependencies**
-    Install all the required libraries from the `requirements.txt` file.
-    ```bash
-    pip install -r requirements.txt
-    ```
+### Step 5: Train the Model (One-Time Step)
 
-6.  **Configure API Keys**
-    Before running the application, you must add your own Reddit API credentials.
-    -   Open the **`main.py`** file.
-    -   Find the `get_text_from_reddit` function.
-    -   Replace the placeholder values for `client_id` and `client_secret` with your own keys.
+Before you can run the app, you must run the training script. This will:
 
-7.  **Train the Model (One-Time Step)**
-    You must train the model once to generate the necessary `.h5` and `.pickle` files. This is a long, resource-intensive process.
-    ```bash
-    python train_model.py
-    ```
+1.  Download the `TweetEval` dataset.
+2.  Train the CNN model.
+3.  Save the `sencnntive_model.h5` and `tokenizer.pickle` files.
+4.  Generate all evaluation files (`.png` and `.txt`).
 
-7.  **Run the Application!**
-    Once training is complete, launch the GUI application.
-    ```bash
-    python gui_app.py
-    ```
-    The application window will now open, ready for you to analyze Reddit posts!
+This process may take several minutes.
+
+```bash
+python train_model.py
+```
+
+### Step 6: Run the Application\!
+
+Once training is complete, you can launch the GUI.
+
+```bash
+python gui_app.py
+```
+
+## 🖥️ How to Use the App
+
+1.  Find a Reddit post you want to analyze.
+2.  Copy the full URL of the post.
+3.  Paste the URL into the text box in the application.
+4.  Click the **"Analyze Sentiment"** button.
+5.  (Optional) Click the **"Show Model Evaluation"** button to open a new window displaying the model's performance reports.
+
+-----
+
+## ❤️ Author
+
+Made With ❤️ By **Ankan**
+
+```
+```
