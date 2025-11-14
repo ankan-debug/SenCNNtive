@@ -65,7 +65,7 @@ python -m venv venv
 .\venv\Scripts\activate
 
 # Activate the environment (macOS/Linux)
-# source venv/bin/activate
+source venv/bin/activate
 ```
 
 ### Step 3: Install Dependencies
@@ -140,4 +140,5 @@ python gui_app.py
 Made With ❤️ By **Ankan**
 
 ```
+sahaankan628@gmail.com
 ```
